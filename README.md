@@ -1,5 +1,5 @@
 # fault-tolerant-control
-### Neural Network-Based Fault identification and Reinforcement Learning for Spacecraft Fault-Tolerant Control
+### :bulb: Neural Network-Based Fault identification and Reinforcement Learning for Spacecraft Fault-Tolerant Control
 <p align="center">
 <img src="architecture.png" width="900px" height="325px" />
 </p>
@@ -18,7 +18,7 @@ Simulation outcomes validate the neural network-based FDI's efficiency and accur
 
 
 ## Getting started
-### Nerual Network based Fault Detection and Identification (FDI)
+### ⚙️:	Nerual Network based Fault Detection and Identification (FDI)
 
 
 #### <a id="Step1">Step 1</a>: Download trainset and testset from Google Drive.
@@ -38,7 +38,7 @@ python run.py --is_train=0
 #### <a id="Step3">Step 3</a>: Need to reproduce experimental results?
 The [pretrained FaultNet model](./fault_detection/checkpoints/FaultNet/best_model.pth) can be found here.
 
-### Reinforcement learning based Fault-Tolerant Control (FTC)
+### :robot: Reinforcement learning based Fault-Tolerant Control (FTC)
 
 
 #### <a id="Step1">Step 1</a>: Modify the parameters in metadata.py.
@@ -53,5 +53,6 @@ python run_SAC.py
 ```.bash
 Set the seed to 240202.
 Set the mode to ‘test’.
+Set the scenario_id to 1/2/3/4.
 python run_SAC.py
 ```
