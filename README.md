@@ -21,7 +21,7 @@ Simulation outcomes validate the neural network-based FDI's efficiency and accur
 ### ⚙️:	Nerual Network based Fault Detection and Identification (FDI)
 
 
-#### <a id="Step1">Step 1</a>: Download trainset and testset from Google Drive.
+#### <a id="Step1">Step 1</a>: Download trainset and testset from [Google Drive](https://drive.google.com/drive/folders/1vIQYWuSMYidRRki7cP_ym5xDANR2gI-i?usp=sharing).
 (This step is **unnecessary** since you can directly run dataset_generate.py.)
 
 #### <a id="Step2">Step 2</a>: Train or Test FaultNet.
