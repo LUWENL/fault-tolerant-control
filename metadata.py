@@ -1,11 +1,8 @@
 import numpy as np
 from numpy import sqrt
 
-##Beliefs are initialized near target
 METADATA = {
-    # 'seed': 2681, # wo maneuver reward
-    # 'seed': 46019, # wo progressive reward
-    'seed': 240202,  # hybrid reward
+    'seed': 240202, 
     'mode': 'train',
     # 'mode': 'test',
     'is_discrete': False,
