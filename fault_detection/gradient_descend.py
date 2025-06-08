@@ -22,7 +22,6 @@ def get_weight(el_para):
     return torch.diag(torch.ones_like(el_para) - el_para)
 
 
-# 定义误差计算函数
 def calculate_error(el_para_hat, ua_para_hat, u_c, part_left, sim_duration=METADATA['time_step_detection'],
                     dt=METADATA['time_step_control']):
     error = torch.zeros(1, device=device)
@@ -56,14 +55,12 @@ if __name__ == '__main__':
     print(target_data.shape)
     seq_len = int(METADATA['time_step_detection'] / METADATA['time_step_control'])
 
-    # 转换为 PyTorch 张量并移动到 GPU
     # device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     device = torch.device("cpu")
     print(device)
 
-    # 定义仿真步数、学习率
     Iterations_num = 300
-    lr = 1e-1  # 学习率
+    lr = 1e-1 
 
     all_MSE = []
     all_MAE = []
@@ -95,9 +92,9 @@ if __name__ == '__main__':
         scheduler = torch.optim.lr_scheduler.LambdaLR(optimizer, lr_lambda=lr_lambda)  # 使用LambdaLR
 
         for iteration in range(Iterations_num):
-            optimizer.zero_grad()  # 清零梯度
+            optimizer.zero_grad()  
             error = calculate_error(el_para, ua_para, u_c, part_left)
-            error.sum().backward()  # 计算总误差的梯度
+            error.sum().backward()  
             optimizer.step()
             scheduler.step()
 
