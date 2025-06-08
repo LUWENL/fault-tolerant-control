@@ -59,10 +59,8 @@ def plot_quaternion(data_list, data_name, fault_times=None):
     plt.close()
 
 def quaternion_to_euler_xyz(q):
-    # 提取四元数的各个分量
     q1, q2, q3, q4 = q
 
-    # 转换为欧拉角（XYZ顺序）
     # Roll (x-axis rotation)
     sinr_cosp = 2 * (q4 * q1 + q2 * q3)
     cosr_cosp = 1 - 2 * (q1**2 + q2**2)
@@ -71,7 +69,7 @@ def quaternion_to_euler_xyz(q):
     # Pitch (y-axis rotation)
     sinp = 2 * (q4 * q2 - q3 * q1)
     if abs(sinp) >= 1:
-        pitch = np.copysign(np.pi / 2, sinp)  # 使用90度，如果sinp超出范围
+        pitch = np.copysign(np.pi / 2, sinp)
     else:
         pitch = np.arcsin(sinp)
 
@@ -80,7 +78,6 @@ def quaternion_to_euler_xyz(q):
     cosy_cosp = 1 - 2 * (q2**2 + q3**2)
     yaw = np.arctan2(siny_cosp, cosy_cosp)
 
-    # 将弧度转换为角度
     roll_deg = np.degrees(roll)
     pitch_deg = np.degrees(pitch)
     yaw_deg = np.degrees(yaw)
@@ -94,26 +91,22 @@ def plot_euler_angle(q_list, data_name):
     pitch_list = []
     yaw_list = []
 
-    # 将四元数转换为欧拉角
     for q in q_list:
         roll, pitch, yaw = quaternion_to_euler_xyz(q)
         roll_list.append(roll)
         pitch_list.append(pitch)
         yaw_list.append(yaw)
 
-    # 绘制欧拉角曲线
     plt.plot(time_list, roll_list, label='Roll (X)')
     plt.plot(time_list, pitch_list, label='Pitch (Y)')
     plt.plot(time_list, yaw_list, label='Yaw (Z)')
 
-    # 设置图像属性
     plt.ylim(-80, 80)
     plt.xlabel('Time, s')
     plt.ylabel('Euler Angle, deg')
     plt.legend(loc='lower right')
     plt.tight_layout()
 
-    # 保存图像
     plt.savefig(os.path.join(save_path, data_name + '.pdf'), dpi=500)
     plt.close()
 
