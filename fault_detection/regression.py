@@ -10,13 +10,10 @@ from metadata import METADATA
 from models.lightweight_evaluation import all_metrics
 
 
-# 训练模型的函数
 def train_model(model, train_loader, test_loader, epochs=int(2e3), learning_rate=1e-4,
                 save_path="checkpoints/best_model.pth", loss_func=None):
     torch.save(model.state_dict(), "checkpoints/best_model.pth")
 
-    import time
-    time.sleep(50)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print("Training model on {}".format(device))
     model = model.to(device)
