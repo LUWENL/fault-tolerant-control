@@ -65,8 +65,8 @@ np.set_printoptions(threshold=np.inf)
 print(repr(qe_4_list[:, -1]))
 # print(mean_reward)
 
-print(f"Number of qe_4 greater than  0.995: {np.sum(qe_4_list >=  0.995)}")
-print(f"Number of qe_4 greater than  0.999: {np.sum(qe_4_list >=  0.999)}")
+print(f"Number of qe_4 greater than  0.995: {np.sum(qe_4_list >=  0.995) - 1}")
+print(f"Number of qe_4 greater than  0.999: {np.sum(qe_4_list >=  0.999) - 1}")
 
 
 def find_threshold_index(qe_4_list, threshold=0.995):
@@ -79,8 +79,8 @@ def find_threshold_index(qe_4_list, threshold=0.995):
     return -1  # 如果没有找到满足条件的时刻，返回 -1
 
 
-print(f"从时刻 {find_threshold_index(qe_4_list[:, -1], 0.995) / 10} 开始，之后的 qe_4 值都大于 0.995。")
-print(f"从时刻 {find_threshold_index(qe_4_list[:, -1], 0.999) / 10} 开始，之后的 qe_4 值都大于 0.999。")
+print(f"从时刻 {find_threshold_index(qe_4_list[:, -1], 0.995) / 10 - 1} 开始，之后的 qe_4 值都大于 0.995。")
+print(f"从时刻 {find_threshold_index(qe_4_list[:, -1], 0.999) / 10 - 1}  开始，之后的 qe_4 值都大于 0.999。")
 
 
 # # plot_quaternion(plot_dict['Desired quaternion'], 'Desired quaternion')
