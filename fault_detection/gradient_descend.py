@@ -26,14 +26,14 @@ def calculate_error(el_para_hat, ua_para_hat, u_c, part_left, sim_duration=METAD
                     dt=METADATA['time_step_control']):
     error = torch.zeros(1, device=device)
     for i in range(int(sim_duration / dt)):
-        weight = get_weight(el_para_hat)  # shape: [N, N_actuator, N_actuator]
-        u_actual = (weight @ u_c[i]) + ua_para_hat  # shape: [N, N_actuator]
+        weight = get_weight(el_para_hat) 
+        u_actual = (weight @ u_c[i]) + ua_para_hat  
         d = generate_external_disturbance(t = random.randint(0, 300), omega = np.random.uniform(-METADATA['max_omega'], METADATA['max_omega'], size = 3))
         d = torch.from_numpy(d).to(device)
 
         error += torch.norm(part_left[i] - u_actual - d)
 
-    return error  # 形状为 (num_para_sets,)
+    return error  
 
 
 def lr_lambda(step, threshold=80, gamma=0.992):
@@ -117,3 +117,4 @@ if __name__ == '__main__':
     mean_inference_time = (end_time - start_time) / len(all_MSE)
 
     print(np.mean(all_MSE), np.mean(all_MAE), mean_inference_time)
+
