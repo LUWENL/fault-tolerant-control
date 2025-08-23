@@ -1,5 +1,6 @@
 # fault-tolerant-control
 ### :bulb: Neural Network-Based Fault identification and Reinforcement Learning for Spacecraft Fault-Tolerant Control
+## TIM2025: [Paper Link](https://ieeexplore.ieee.org/abstract/document/11122432)
 <p align="center">
 <img src="architecture.png" width="900px" height="325px" />
 </p>
@@ -55,4 +56,15 @@ Set the seed to 240202.
 Set the mode to ‘test’.
 Set the scenario_id to 1/2/3/4.
 python run_SAC.py
+```
+
+## Cite the paper
+```.bash
+@article{lu2025neural,
+  title={Neural Network-Based Fault Identification and Reinforcement Learning for Spacecraft Fault-Tolerant Control},
+  author={Lu, Wenlong and Geng, Ziyao and Zhuang, Hongji and Shen, Qiang and Wu, Shufan and Razoumny, Vladimir Yu and Razoumny, Yury N},
+  journal={IEEE Transactions on Instrumentation and Measurement},
+  year={2025},
+  publisher={IEEE}
+}
 ```
